@@ -1,0 +1,68 @@
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router?
+router  
+Router(config)#router ?
+  bgp    Border Gateway Protocol (BGP)
+  eigrp  Enhanced Interior Gateway Routing Protocol (EIGRP)
+  ospf   Open Shortest Path First (OSPF)
+  rip    Routing Information Protocol (RIP)
+
+Router(config)#router eigrp ?
+  <1-65535>  Autonomous system number
+
+Router(config)#router eigrp 10
+Router(config-router)#?
+  auto-summary       Enable automatic network number summarization
+  distance           Define an administrative distance
+  eigrp              EIGRP specific commands
+  exit               Exit from routing protocol configuration mode
+  metric             Modify IGRP routing metrics and parameters
+  neighbor           Specify a neighbor router
+  network            Enable routing on an IP network
+  no                 Negate a command or set its defaults
+  passive-interface  Suppress routing updates on an interface
+  redistribute       Redistribute information from another routing protocol
+  variance           Control load balancing variance
+
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router eigrp 10
+Router(config-router)#network 50.0.0.0 0.255.255.255
+Router(config-router)#network 192.168.6.0 0.0.0.255
+Router(config-router)#network 60.0.0.0 0.255.255.255
+
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1, changed state to up
+
+%DUAL-5-NBRCHANGE: IP-EIGRP 10: Neighbor 60.0.0.2 (Serial0/1) is up: new adjacency
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/0, changed state to up
+
+%DUAL-5-NBRCHANGE: IP-EIGRP 10: Neighbor 50.0.0.1 (Serial0/0) is up: new adjacency
+
+
+
+Router>sh ip route
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+C    50.0.0.0/8 is directly connected, Serial0/0
+C    60.0.0.0/8 is directly connected, Serial0/1
+D    70.0.0.0/8 [90/2681856] via 60.0.0.2, 00:20:22, Serial0/1
+D    80.0.0.0/8 [90/3193856] via 60.0.0.2, 00:20:20, Serial0/1
+D    192.168.5.0/24 [90/2172416] via 50.0.0.1, 00:20:20, Serial0/0
+C    192.168.6.0/24 is directly connected, FastEthernet0/0
+D    192.168.7.0/24 [90/2172416] via 60.0.0.2, 00:20:22, Serial0/1
+D    192.168.8.0/24 [90/2684416] via 60.0.0.2, 00:20:20, Serial0/1
+D    192.168.9.0/24 [90/3196416] via 60.0.0.2, 00:20:20, Serial0/1
