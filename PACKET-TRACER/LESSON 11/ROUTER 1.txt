@@ -1,0 +1,46 @@
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router ospf 10
+Router(config-router)#net 1.0.0.0 0.255.255.255 area 1
+Router(config-router)#
+00:17:41: %OSPF-5-ADJCHG: Process 10, Nbr 10.0.0.1 on Serial0/0/0 from LOADING to FULL, Loading Done
+
+Router(config-router)#net 2.0.0.0 0.255.255.255 area 1
+Router(config-router)#net 20.0.0.0 0.255.255.255 area 1
+Router(config-router
+Router(config-router)#^Z
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router>sh ip route ospf
+O IA 3.0.0.0 [110/256] via 1.0.0.1, 00:12:22, Serial0/0/0
+O    10.0.0.0 [110/65] via 1.0.0.1, 00:18:53, Serial0/0/0
+O IA 30.0.0.0 [110/257] via 1.0.0.1, 00:12:22, Serial0/0/0
+O IA 40.0.0.0 [110/193] via 1.0.0.1, 00:12:22, Serial0/0/0
+O IA 80.0.0.0 [110/128] via 1.0.0.1, 00:18:37, Serial0/0/0
+O IA 90.0.0.0 [110/192] via 1.0.0.1, 00:12:22, Serial0/0/0
+
+Router>sh ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     1.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C       1.0.0.0/8 is directly connected, Serial0/0/0
+L       1.0.0.2/32 is directly connected, Serial0/0/0
+     2.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C       2.0.0.0/8 is directly connected, Serial0/0/1
+L       2.0.0.1/32 is directly connected, Serial0/0/1
+O IA 3.0.0.0/8 [110/256] via 1.0.0.1, 00:12:25, Serial0/0/0
+O    10.0.0.0/8 [110/65] via 1.0.0.1, 00:18:56, Serial0/0/0
+     20.0.0.0/8 is variably subnetted, 2 subnets, 2 masks
+C       20.0.0.0/8 is directly connected, FastEthernet0/0
+L       20.0.0.1/32 is directly connected, FastEthernet0/0
+O IA 30.0.0.0/8 [110/257] via 1.0.0.1, 00:12:25, Serial0/0/0
