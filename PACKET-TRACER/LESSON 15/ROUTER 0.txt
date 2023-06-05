@@ -1,0 +1,20 @@
+Router#en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#access-list 1 deny 192.168.2.0 0.0.0.255
+Router(config)#access-list 1 permit any
+Router(config)#int fa0/0
+Router(config-if)#ip access-group 1 ?
+  in   inbound packets
+  out  outbound packets
+Router(config-if)#ip access-group 1 out
+Router(config-if)#end
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+
+
+Router#sh ip access-lists 1
+Standard IP access list 1
+    deny 192.168.2.0 0.0.0.255
+    permit any
