@@ -1,0 +1,18 @@
+Router#en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#access-list 10 deny host 10.0.0.2 
+Router(config)#access-list 10 permit any
+Router(config)#interface FastEthernet0/0
+Router(config-if)#ip access-group 10 out
+Router(config-if)#end
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+
+
+Router#show access-lists 10
+Standard IP access list 10
+    deny host 10.0.0.2
+    permit any
+
