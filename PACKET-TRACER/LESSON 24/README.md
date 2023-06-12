@@ -1,0 +1,5 @@
+![Screenshot (294)](https://github.com/Berlin629252/CCNA/assets/66897078/a335db96-1a67-4037-a9e7-ab325357a36b)
+![Screenshot (295)](https://github.com/Berlin629252/CCNA/assets/66897078/acb36ee6-486f-46e8-a0ac-13312a76e0af)
+![Screenshot (296)](https://github.com/Berlin629252/CCNA/assets/66897078/4e9224dc-405d-4fa9-a8b2-1ac97f480741)
+![Screenshot (297)](https://github.com/Berlin629252/CCNA/assets/66897078/47666b83-67fc-4996-b21a-37cc7767a90e)
+![Screenshot (298)](https://github.com/Berlin629252/CCNA/assets/66897078/3c0c716e-24c7-45c4-94d5-926ccf4954e9)
