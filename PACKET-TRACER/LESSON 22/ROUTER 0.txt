@@ -1,0 +1,18 @@
+
+Router#en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int gig0/0
+Router(config-if)#ip nat inside 
+Router(config-if)#int gig0/1
+Router(config-if)#ip nat outside 
+Router(config-if)#exit
+Router(config)ip route 192.168.10.0 255.255.255.0 10.0.0.1
+Router(config)#ip nat inside source static 192.168.10.10 10.0.0.1 
+Router(config)#ip nat inside source static 192.168.10.20 10.0.0.2
+
+
+command
+Router#show ip nat translations
+Router#clear ip nat translation *
+Router#debug ip nat
