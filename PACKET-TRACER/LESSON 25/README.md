@@ -1,0 +1,6 @@
+![Screenshot (344)](https://github.com/Berlinshaju/CCNA/assets/66897078/e28f24dc-3626-4a23-b364-f9cd283ecb80)
+![Uploading Screenshot (343).png…]()
+![Uploading Screenshot (342).png…]()
+![Uploading Screenshot (341).png…]()
+![Uploading Screenshot (340).png…]()
+![Uploading Screenshot (339).png…]()
