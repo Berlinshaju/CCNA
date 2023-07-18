@@ -1,0 +1,42 @@
+
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hos
+Router(config)#hostname R3
+R3(config)#int s0/1/0 
+R3(config-if)#no sh
+R3(config-if)#no shutdown 
+
+R3(config-if)#
+%LINK-5-CHANGED: Interface Serial0/1/0, changed state to up
+
+R3(config-if)#enca
+R3(config-if)#encapsulation fra
+R3(config-if)#encapsulation frame-relay 
+R3(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0, changed state to up
+
+R3(config-if)#exit
+R3(config)#int s0/1/0.1 p
+R3(config)#int s0/1/0.1 point-to-point 
+R3(config-subif)#
+%LINK-5-CHANGED: Interface Serial0/1/0.1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0.1, changed state to up
+
+R3(config-subif)#ip add 30.0.0.1 255.0.0.0
+R3(config-subif)#fra
+R3(config-subif)#frame-relay int
+R3(config-subif)#frame-relay interface-dlci 301
+R3(config-subif)#exit
+R3(config)#int s0/1/0.2 point-to-point 
+R3(config-subif)#
+%LINK-5-CHANGED: Interface Serial0/1/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/1/0.2, changed state to up
+
+R3(config-subif)#ip add 10.0.0.2 255.0.0.0
+R3(config-subif)#frame-relay interface-dlci 202
+R3(config-subif)#exit
+R3(config)#

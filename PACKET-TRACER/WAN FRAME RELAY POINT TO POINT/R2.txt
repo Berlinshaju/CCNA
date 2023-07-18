@@ -1,0 +1,60 @@
+Router>en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ho
+Router(config)#hostname R2
+R2(config)#int s0/2/0
+R2(config-if)#no sh
+R2(config-if)#no shutdown 
+
+R2(config-if)#
+%LINK-5-CHANGED: Interface Serial0/2/0, changed state to up
+
+R2(config-if)#enc
+R2(config-if)#encapsulation fra
+R2(config-if)#encapsulation frame-relay 
+R2(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2/0, changed state to up
+
+R2(config-if)#int s0/2/0.1 fr
+R2(config-if)#int s0/2/0.1 ?
+% Unrecognized command
+R2(config-if)#int s0/2/0.1 ?
+% Unrecognized command
+R2(config-if)#int s0/2/0.1 ?
+% Unrecognized command
+R2(config-if)#int s0/2/1 ?
+% Unrecognized command
+R2(config-if)#exit
+R2(config)#int 0/2/0.1 ?
+% Unrecognized command
+R2(config)#int s0/2/0.1 ?
+  multipoint      Treat as a multipoint link
+  point-to-point  Treat as a point-to-point link
+  <cr>
+R2(config)#int s0/2/0.1 p
+R2(config)#int s0/2/0.1 point-to-point 
+R2(config-subif)#
+%LINK-5-CHANGED: Interface Serial0/2/0.1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2/0.1, changed state to up
+
+R2(config-subif)#ip add
+R2(config-subif)#ip address 20.0.0.2 255.0.0.0
+R2(config-subif)#fra
+R2(config-subif)#frame-relay int
+R2(config-subif)#frame-relay interface-dlci 102
+R2(config-subif)#exit
+R2(config)#int s0/2/0.2 point-to-point 
+R2(config-subif)#
+%LINK-5-CHANGED: Interface Serial0/2/0.2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Serial0/2/0.2, changed state to up
+
+R2(config-subif)#ip add
+R2(config-subif)#ip address 30.0.0.2 255.0.0.0 
+R2(config-subif)#fra
+R2(config-subif)#frame-relay in
+R2(config-subif)#frame-relay interface-dlci 302
+R2(config-subif)#exit
+R2(config)#
