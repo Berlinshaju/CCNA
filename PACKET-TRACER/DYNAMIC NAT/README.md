@@ -1,1 +1,2 @@
-![Screenshot (391)](https://github.com/Berlinshaju/CCNA/assets/66897078/041ed76a-0080-4b70-9cfa-6029cd405b38)
+![Screenshot (393)](https://github.com/Berlinshaju/CCNA/assets/66897078/a7cd1afc-8211-4dc2-9522-5b0dcf33a799)
+
