@@ -1,0 +1,28 @@
+Router#
+Router#
+Router#en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router
+Router(config)#router ?
+  bgp    Border Gateway Protocol (BGP)
+  eigrp  Enhanced Interior Gateway Routing Protocol (EIGRP)
+  ospf   Open Shortest Path First (OSPF)
+  rip    Routing Information Protocol (RIP)
+Router(config)#router bgp ?
+  <1-65535>  Autonomous system number
+Router(config)#router bgp 200
+Router(config-router)#net
+Router(config-router)#network 192.168.2.0
+Router(config-router)#network 10.0.0.0
+Router(config-router)#network 20.0.0.0
+Router(config-router)#nei
+Router(config-router)#neighbor 10.0.0.1 ?
+  next-hop-self  Disable the next hop calculation for this neighbor
+  remote-as      Specify a BGP neighbor
+Router(config-router)#neighbor 10.0.0.1 re
+Router(config-router)#neighbor 10.0.0.1 remote-as 100
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 10.0.0.1 Up
+
+Router(config-router)#neighbor 20.0.0.2 remote-as 300
+Router(config-router)#%BGP-5-ADJCHANGE: neighbor 20.0.0.2 Up
